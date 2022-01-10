@@ -1,5 +1,5 @@
 # WordPressのファイルは別リポジトリで管理する
-.docker/wp_files/
+wp_files/
 
 
 

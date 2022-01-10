@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+   db:
+     image: mariadb:latest
+     ports:
+       - "3306:3306"
+     volumes:
+       - ./db_datas:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: wptakaken
+       MYSQL_DATABASE: takaken
+       MYSQL_USER: takaken
+       MYSQL_PASSWORD: takaken0808
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - "8000:80"
+     volumes:
+       - ./php_settings:/usr/local/etc/php/conf.d
+       - ./wp_files/www/html:/var/www/html
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_NAME: takaken
+       WORDPRESS_DB_USER: takaken
+       WORDPRESS_DB_PASSWORD: takaken0808
