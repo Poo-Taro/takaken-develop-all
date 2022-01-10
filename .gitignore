@@ -1,5 +1,6 @@
 # WordPressのファイルは別リポジトリで管理する
 wp_files/
-
+db_datas/
+php_settings/
 
 
